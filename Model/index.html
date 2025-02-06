@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+</head>
+<body>
+    <h1>User Information Form</h1>
+    <form method="POST">
+        <label for="income">Income per Month:</label>
+        <input type="number" step="any" name="income" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br><br>
+
+        <label for="dependents">Dependents:</label>
+        <input type="number" name="dependents" required><br><br>
+
+        <label for="rent">Rent per Month:</label>
+        <input type="number" step="any" name="rent" required><br><br>
+
+        <label for="loan_repayment">Loan Repayment per Month:</label>
+        <input type="number" step="any" name="loan_repayment" required><br><br>
+
+        <label for="insurance">Insurance Premium:</label>
+        <input type="number" step="any" name="insurance" required><br><br>
+
+        <label for="healthcare">Healthcare Cost per Month:</label>
+        <input type="number" step="any" name="healthcare" required><br><br>
+
+        <label for="education">Education Cost per Month:</label>
+        <input type="number" step="any" name="education" required><br><br>
+
+        <label for="savings">Desired Savings per Month:</label>
+        <input type="number" step="any" name="savings" required><br><br>
+
+        <label for="occupation">Occupation:</label>
+        <select name="occupation" required>
+            <option value="Student">Student</option>
+            <option value="Retired">Retired</option>
+            <option value="Professional">Professional</option>
+            <option value="Self-Employed">Self-Employed</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
