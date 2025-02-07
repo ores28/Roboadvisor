@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robo-Advisor for Nepal Mutual Fund Investment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        .question {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Robo-Advisor for Nepal Mutual Fund Investment</h2>
+        <form id="investmentForm">
+            <div class="question">Enter your name:</div>
+            <input type="text" id="name" required>
+            
+            <div class="question">Enter your occupation:</div>
+            <select id="occupation" required>
+                <option value="Self Employed">Self Employed</option>
+                <option value="Retired">Retired</option>
+                <option value="Professional">Professional</option>
+                <option value="Student">Student</option>
+                <option value="Others">Others</option>
+            </select>
+            
+            <div class="question">Enter your income per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""income" required>
+            
+            <div class="question">Enter your age:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""age" required>
+            
+            <div class="question">Enter the number of dependents:</div>
+            <select id="dependents" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4+">4 and more</option>
+            </select>
+            
+            <div class="question">Enter your rent per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""rent" required>
+            
+            <div class="question">Enter your loan repayment per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""loan" required>
+            
+            <div class="question">Enter your insurance premium amount:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""insurance" required>
+            
+            <div class="question">Enter your healthcare cost per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""healthcare" required>
+            
+            <div class="question">Enter your education cost per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""education" required>
+            
+            <div class="question">Enter your desired savings per month:</div>
+            <input type="number" id="" inputmode="numeric" pattern="[0-9]*""savings" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
