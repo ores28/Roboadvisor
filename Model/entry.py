@@ -9,7 +9,7 @@ occupation_data = {
     "Retired": {"weightage": 0.2, "remarks": "Very low risk tolerance; focus on preserving savings for stability and healthcare."},
     "Professional": {"weightage": 0.6, "remarks": "Moderate to high risk tolerance depending on income stability and career progression."},
     "Self-Employed": {"weightage": 0.35, "remarks": "Lower risk tolerance due to inconsistent incomes and limited safety nets."},
-    "Other": {"weightage": 0.5, "remarks": "Varies based on personal and career circumstances."}
+    "Other": {"weightage": 0.35, "remarks": "Varies based on personal and career circumstances."}
 }
 
 # Create DB function
@@ -38,7 +38,7 @@ def create_db():
 
 # Insert user data function
 def insert_user_data(income, age, dependents, rent, loan_repayment, insurance, healthcare, education, savings, occupation):
-    weightage = occupation_data.get(occupation, {}).get("weightage", 0.5)  # Default to 0.5 if not found
+    weightage = occupation_data.get(occupation, {}).get("weightage", 0.35)  # Default to 0.5 if not found
     remarks = occupation_data.get(occupation, {}).get("remarks", "Varies based on personal and career circumstances.")
     
     conn = sqlite3.connect('user_info.db')
