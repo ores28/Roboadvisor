@@ -3,11 +3,12 @@ import pyodbc
 try:
     conn = pyodbc.connect(
         'DRIVER={SQL Server};'
-        'SERVER=DESKTOP-H50EB6O\SQLEXPRESS;'  # Change this to your server name
+        'SERVER=DESKTOP-H50EB6O\\SQLEXPRESS;'
         'DATABASE=UserInfoDB;'
         'Trusted_Connection=yes;'
     )
     print("Connection Successful!")
-    conn.close()
+except pyodbc.InterfaceError as e:
+    print(f"Interface Error: {e}")
 except Exception as e:
-    print("Error:", e)
+    print(f"Failed to connect to the database. Error: {e}")

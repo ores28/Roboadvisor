@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+.question {
+    font-weight: bold;
+    margin-top: 10px;
+}
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #218838;
+}
+.table-flex-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    margin-top: 20px;
+  }
+  /* Container for the table with a "back rectangle" that fits the table */
+.table-container {
+    background-color: #ffffff;         /* White background; adjust as needed */
+    padding: 20px;                     /* Space around the table */
+    border: 2px solid #007BFF;         /* Blue border; change color if needed */
+    border-radius: 8px;                /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    display: inline-block;             /* Shrink-wraps to table's width */
+  }
+  /* Table styling */
+.table-container table {
+    border-collapse: collapse;
+    width: auto;                       /* Width determined by content */
+  }
+.table-container th,
+  .table-container td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+.table-container th {
+    background-color: #007BFF;
+    color: #fff;
+  }
+
+.container {
+    margin: 20px;
+    }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    }
+table, th, td {
+    border: 1px solid #ddd;
+    }
+th, td {
+    padding: 10px;
+    text-align: center;
+    }
+th {
+    background-color: #f4f4f4;
+    }
+.button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+.button:hover {
+    background-color: #0056b3;
+    }
+
+.table-container {
+    background: white; /* White background */
+    padding: 20px; /* Spacing around the table */
+    margin: 20px auto; /* Center the table */
+    width: 90%; /* Adjust width for responsiveness */
+    border-radius: 10px; /* Rounded edges for aesthetics */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for better visuals */
+      }
+    
+table {
+    width: 100%;
+    border-collapse: collapse;
+      }
+    
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+      }
+    
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+      }
+    
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+      }
+    
+.button {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+      }
+    
+.button:hover {
+    background-color: darkred;
+      }
+  
+

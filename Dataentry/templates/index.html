@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Robo-Advisor for Nepal Mutual Fund Investment</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  {% if submitted %}
+    <!-- After submission, show only the table -->
+    <h2>Submissions</h2>
+    {% if entries|length < 1 %}
+      <h4>No submissions found.</h4>
+    {% else %}
+      <!-- Right-align the table container within its parent -->
+      <div style="text-align: right; margin-top: 20px;">
+        <div class="table-container">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Age</th>
+              <th>Income/Month</th>
+              <th>Rent/Month</th>
+              <th>Loan Repayment</th>
+              <th>Insurance Premium</th>
+              <th>Healthcare Cost</th>
+              <th>Education Cost</th>
+              <th>Desired Savings</th>
+              <th>Dependents</th>
+              <th>Occupation</th>
+              <th>Date Created</th>
+              <th>Actions</th>
+            </tr>
+            {% for entry in entries %}
+            <tr>
+              <td>{{ entry.id }}</td>
+              <td>{{ entry.age }}</td>
+              <td>{{ entry.income_per_month }}</td>
+              <td>{{ entry.rent_per_month }}</td>
+              <td>{{ entry.loan_repayment_per_month }}</td>
+              <td>{{ entry.insurance_premium }}</td>
+              <td>{{ entry.healthcare_cost_per_month }}</td>
+              <td>{{ entry.education_cost_per_month }}</td>
+              <td>{{ entry.desired_saving_per_month }}</td>
+              <td>{{ entry.no_of_dependents }}</td>
+              <td>{{ entry.occupation }}</td>
+              <td>{{ entry.date_created.strftime('%Y-%m-%d') }}</td>
+              <td>
+                <a href="/delete/{{ entry.id }}" class="button" style="background-color: red;">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    {% endif %}
+  {% else %}
+    <!-- Before submission, display the form -->
+    <h2>Robo-Advisor for Nepal Mutual Fund Investment</h2>
+    <form action="/" method="POST">
+      <div class="question">
+          <label for="occupation">Enter your occupation:</label>
+      </div>
+      <select name="occupation" id="occupation" required>
+          <option value="Self Employed">Self Employed</option>
+          <option value="Retired">Retired</option>
+          <option value="Professional">Professional</option>
+          <option value="Student">Student</option>
+      </select>
+      
+      <div class="question">
+          <label for="income_per_month">Enter your income per month:</label>
+      </div>
+      <input type="number" name="income_per_month" id="income_per_month" step="any" required>
+      
+      <div class="question">
+          <label for="age">Enter your age:</label>
+      </div>
+      <input type="number" name="age" id="age" required>
+      
+      <div class="question">
+          <label for="no_of_dependents">Enter the number of dependents:</label>
+      </div>
+      <select name="no_of_dependents" id="no_of_dependents" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4+">4 and more</option>
+      </select>
+      
+      <div class="question">
+          <label for="rent_per_month">Enter your rent per month:</label>
+      </div>
+      <input type="number" name="rent_per_month" id="rent_per_month" step="any" required>
+      
+      <div class="question">
+          <label for="loan_repayment_per_month">Enter your loan repayment per month:</label>
+      </div>
+      <input type="number" name="loan_repayment_per_month" id="loan_repayment_per_month" step="any" required>
+      
+      <div class="question">
+          <label for="insurance_premium">Enter your insurance premium amount:</label>
+      </div>
+      <input type="number" name="insurance_premium" id="insurance_premium" step="any" required>
+      
+      <div class="question">
+          <label for="healthcare_cost_per_month">Enter your healthcare cost per month:</label>
+      </div>
+      <input type="number" name="healthcare_cost_per_month" id="healthcare_cost_per_month" step="any" required>
+      
+      <div class="question">
+          <label for="education_cost_per_month">Enter your education cost per month:</label>
+      </div>
+      <input type="number" name="education_cost_per_month" id="education_cost_per_month" step="any" required>
+      
+      <div class="question">
+          <label for="desired_saving_per_month">Enter your desired savings per month:</label>
+      </div>
+      <input type="number" name="desired_saving_per_month" id="desired_saving_per_month" step="any" required>
+      
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}
