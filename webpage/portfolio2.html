@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Portfolio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          135deg,
+          #4a90e2,
+          #50e3c2
+        ); /* Gradient background */
+        color: #333;
+      }
+      .container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 100px auto;
+        text-align: center;
+      }
+      h2 {
+        color: #4a90e2;
+        font-size: 36px;
+      }
+      p.small-text {
+        font-size: 16px;
+        text-align: left;
+        color: #666;
+        margin-top: -10px;
+        margin-left: 10px;
+      }
+      .investment-box {
+        display: inline-block;
+        width: 100px;
+        padding: 8px;
+        margin: 10px 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .investment-box:focus {
+        border-color: #50e3c2;
+        outline: none;
+      }
+      .btn-submit {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .btn-submit:hover {
+        background-color: #357ab7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>User Portfolio</h2>
+      <p class="small-text">Hello there,</p>
+      <div class="portfolio-details" id="portfolioDetails"></div>
+      <button class="btn-submit">Submit</button>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const portfolioDetails = document.getElementById("portfolioDetails");
+      portfolioDetails.innerHTML = `
+            <p><strong>Name:</strong> <input type="text" class="investment-box" placeholder="Enter Name"></p>
+            <p>It is best for the user to invest Rs. 
+                <input type="text" class="investment-box" placeholder="Amount"> 
+                in 
+                <input type="text" class="investment-box" placeholder="Mutual Fund"> 
+                mutual fund as per the questionnaire they filled.
+            </p>
+        `;
+    </script>
+  </body>
+</html>
