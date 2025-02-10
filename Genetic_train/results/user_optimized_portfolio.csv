@@ -1,0 +1,5 @@
+Asset_Class,Source,Optimized_Threshold,Adjusted_Weight,Investment_Amount
+Asset_1,cmf2,0.793278272036051,1.0,100000.0
+Asset_1,gbif2,0.793278272036051,1.0,100000.0
+Asset_1,nb3,0.793278272036051,1.0,100000.0
+Asset_1,nb2,0.793278272036051,1.0,100000.0

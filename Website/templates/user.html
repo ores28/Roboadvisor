@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Robo-Advisor for Nepal Mutual Fund Investment</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Submissions</h2>
+    {% if entries is none %}
+      <h4>No submissions found.</h4>
+    {% else %}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Income/Month</th>
+              <th>Rent/Month</th>
+              <th>Loan Repayment</th>
+              <th>Insurance Premium</th>
+              <th>Healthcare Cost</th>
+              <th>Education Cost</th>
+              <th>Desired Savings</th>
+              <th>Dependents</th>
+              <th>Occupation</th>
+              <th>Date Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ entries.id }}</td>
+              <td>{{ entries.name }}</td>
+              <td>{{ entries.age }}</td>
+              <td>{{ entries.income_per_month }}</td>
+              <td>{{ entries.rent_per_month }}</td>
+              <td>{{ entries.loan_repayment_per_month }}</td>
+              <td>{{ entries.insurance_premium }}</td>
+              <td>{{ entries.healthcare_cost_per_month }}</td>
+              <td>{{ entries.education_cost_per_month }}</td>
+              <td>{{ entries.desired_saving_per_month }}</td>
+              <td>{{ entries.no_of_dependents }}</td>
+              <td>{{ entries.occupation }}</td>
+              <td>{{ entries.date_created.strftime('%Y-%m-%d') }}</td>
+              <td>
+                <a href="/delete/{{ entries.id }}" class="button delete-btn">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="title">User Portfolio</div>
+          <p>Hello there,</p>
+          <label><strong>Name: {{entries.name}}</strong></label>
+          <p>It is best for you to invest Rs. {{entries.cmf2}} in CMF2 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for you to invest Rs. {{entries.nb2}} in NB2 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for user to invest Rs. {{entries.nb3}} in NB3 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for you to invest Rs. {{entries.gibf1}} in GIBF1 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      </div>
+</div>
+{% endif %}
+{% endblock %}

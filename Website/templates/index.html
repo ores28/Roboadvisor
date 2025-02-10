@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Robo-Advisor for Nepal Mutual Fund Investment</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  {% if submitted %}
+    <h2>Submissions</h2>
+    <h2>Please note down your user-id for future access</h2>
+    {% if entries|length < 1 %}
+      <h4>No submissions found.</h4>
+    {% else %}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Income/Month</th>
+              <th>Rent/Month</th>
+              <th>Loan Repayment</th>
+              <th>Insurance Premium</th>
+              <th>Healthcare Cost</th>
+              <th>Education Cost</th>
+              <th>Desired Savings</th>
+              <th>Dependents</th>
+              <th>Occupation</th>
+              <th>Date Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in entries[-1:]%}
+            <tr>
+              <td>{{ entry.id }}</td>
+              <td>{{ entry.name }}</td>
+              <td>{{ entry.age }}</td>
+              <td>{{ entry.income_per_month }}</td>
+              <td>{{ entry.rent_per_month }}</td>
+              <td>{{ entry.loan_repayment_per_month }}</td>
+              <td>{{ entry.insurance_premium }}</td>
+              <td>{{ entry.healthcare_cost_per_month }}</td>
+              <td>{{ entry.education_cost_per_month }}</td>
+              <td>{{ entry.desired_saving_per_month }}</td>
+              <td>{{ entry.no_of_dependents }}</td>
+              <td>{{ entry.occupation }}</td>
+              <td>{{ entry.date_created.strftime('%Y-%m-%d') }}</td>
+              <td>
+                <a href="/delete/{{ entry.id }}" class="button delete-btn">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% for entry in entries[-1:] %}
+      <div class="container">
+        <div class="card">
+          <div class="title">User Portfolio</div>
+          <p>Hello there,</p>
+          <label><strong>Name: {{entry.name}}</strong></label>
+          <p>It is best for you to invest Rs. {{entry.cmf2}} in CMF2 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for you to invest Rs. {{entry.nb2}} in NB2 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for user to invest Rs. {{entry.nb3}} in NB3 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      <div class="card">
+          <p>It is best for you to invest Rs. {{entry.gibf1}} in GIBF1 mutual fund as per the questionnaire you filled.</p>
+      </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% else %}
+    <h2>Robo-Advisor for Nepal Mutual Fund Investment</h2>
+    <h2>Robo-Advisor is a digital platform that provides automated, algorithm-driven financial planning services with little to no human supervision.</h2>
+    <h3>Have you previously used Robo-Advisor?</h3>
+    <form action="/user/" method="POST">
+      <div class="question">
+          <label for="user-id">Enter your user-id:</label>
+          <input type="number" name="user-id" id="user-id" required>
+      </div>
+      <button type="submit" name="submitted" value="true">Submit</button>
+    </form>  
+    <br>
+    <h3>Fill out the form below to get your personalized investment portfolio.<h3>
+    <form action="/" method="POST">
+      <div class="question">
+          <label for="name">Enter your name:</label>
+          <input type="text" name="name" id="name" required>
+      </div>
+      <div class="question">
+          <label for="occupation">Enter your occupation:</label>
+          <select name="occupation" id="occupation" required>
+              <option value="Self Employed">Self Employed</option>
+              <option value="Retired">Retired/Unemployed</option>
+              <option value="Professional">Professional</option>
+              <option value="Student">Student</option>
+          </select>
+      </div>
+
+      <div class="question">
+          <label for="income_per_month">Enter your income per month:</label>
+          <input type="number" name="income_per_month" id="income_per_month" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="age">Enter your age:</label>
+          <input type="number" name="age" id="age" required>
+      </div>
+
+      <div class="question">
+          <label for="no_of_dependents">Enter the number of dependents:</label>
+          <select name="no_of_dependents" id="no_of_dependents" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4 and more</option>
+          </select>
+      </div>
+
+      <div class="question">
+          <label for="rent_per_month">Enter your rent per month:</label>
+          <input type="number" name="rent_per_month" id="rent_per_month" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="loan_repayment_per_month">Enter your loan repayment per month:</label>
+          <input type="number" name="loan_repayment_per_month" id="loan_repayment_per_month" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="insurance_premium">Enter your insurance premium amount:</label>
+          <input type="number" name="insurance_premium" id="insurance_premium" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="healthcare_cost_per_month">Enter your healthcare cost per month:</label>
+          <input type="number" name="healthcare_cost_per_month" id="healthcare_cost_per_month" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="education_cost_per_month">Enter your education cost per month:</label>
+          <input type="number" name="education_cost_per_month" id="education_cost_per_month" step="any" required>
+      </div>
+
+      <div class="question">
+          <label for="desired_saving_per_month">Enter your desired savings per month:</label>
+          <input type="number" name="desired_saving_per_month" id="desired_saving_per_month" step="any" required>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}
