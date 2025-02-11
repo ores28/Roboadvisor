@@ -65,7 +65,7 @@ def index():
 
         # Predict risk tolerance
         risk_tolerance = predict_risk_tolerance(df)
-        # risk_tolerance = risk_tolerance*10
+        risk_tolerance = risk_tolerance*10
         if risk_tolerance < 0:
             risk_tolerance = 0
         print(f"Risk Tolerance: {risk_tolerance}")
