@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block head %}
+<title>Robo-Advisor Login</title>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+/>
+{% endblock %} {% block body %}
+<div class="container">
+  <h1>Robo-Advisor</h1>
+  <h3>Login</h3>
+  <form action="{{ url_for('login') }}" method="POST">
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% set latest_message = messages[-1] %}
+    <h5>
+      <div class="alert alert-{{ latest_message[0] }}">
+        {{ latest_message[1] }}
+      </div>
+    </h5>
+    {% endif %} {% endwith %}
+    <button type="submit">Login</button>
+  </form>
+  <h4>
+    <p>
+      Don't have an account?
+      <a href="{{ url_for('register') }}">Register here</a>
+    </p>
+  </h4>
+</div>
+{% endblock %}

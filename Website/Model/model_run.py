@@ -4,7 +4,7 @@ import numpy as np
 
 def predict_risk_tolerance(data):
     # Load the trained model parameters
-    loaded_params = torch.load('Roboadvisor\Website\Model\linear_regression_model.pth', weights_only=False)
+    loaded_params = torch.load('Model\linear_regression_model.pth', weights_only=False)
     loaded_model = LinearRegression()
     loaded_model.coef_ = np.array(loaded_params['coef_'])
     loaded_model.intercept_ = np.array(loaded_params['intercept_'])

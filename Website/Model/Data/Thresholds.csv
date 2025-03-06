@@ -1,5 +1,12 @@
 Asset_Class,Source,Optimized_Threshold
-Asset_1,cmf2,0.793278272036051
-Asset_2,nb2,0.6924155312567412
-Asset_3,nb3,0.5329419024072257
-Asset_4,gibf1,0.6863451080034453
+Asset_1,cmf1,0.747630098
+Asset_2,cmf2,0.856351896
+Asset_3,gibf1,0.922183468
+Asset_4,kef,0.760638893
+Asset_5,lvf,0.874062705
+Asset_6,mmf1,0.932365756
+Asset_7,nb2,0.8427616
+Asset_8,nb3,0.957395343
+Asset_9,niblstf,0.890156039
+Asset_10,rmf1,0.942960781
+Asset_11,sfmf,0.89162028

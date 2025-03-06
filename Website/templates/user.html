@@ -1,75 +1,102 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block head %}
+<title>Robo-Advisor Portfolio</title>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+/>
+<script>
+  function confirmDeletion() {
+    return confirm(
+      "Are you sure? Both your portfolio and account will be deleted!"
+    );
+  }
+</script>
+<script
+  type="text/javascript"
+  src="https://www.gstatic.com/charts/loader.js"
+></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
 
-{% block head %}
-  <title>Robo-Advisor for Nepal Mutual Fund Investment</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-{% endblock %}
-
-{% block body %}
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Fund', 'Amount'],
+      ['Citizens Mutual Fund 1', {{ entries.cmf1 }}],
+      ['Citizens Mutual Fund 2', {{ entries.cmf2 }}],
+      ['Nabil Balanced Fund 2', {{ entries.nb2 }}],
+      ['Nabil Balanced Fund 3', {{ entries.nb3 }}],
+      ['Global IME Balance Fund 1', {{ entries.gibf1 }}],
+      ['Kumari Equity Fund', {{ entries.kef }}],
+      ['Laxmi Value Fund', {{ entries.lvf }}],
+      ['Mega Mutual Fund 1', {{ entries.mmf1 }}],
+      ['NIBL Stable Fund', {{ entries.niblstf }}],
+      ['RBB Mutual Fund 1', {{ entries.rmf1 }}],
+      ['Sunrise First Mutual Fund', {{ entries.sfmf }}],
+    ]);
+    var options = {
+      title: ''
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
+  }
+</script>
+{% endblock %} {% block body %}
 <div class="container">
-    <h2>Submissions</h2>
-    {% if entries is none %}
-      <h4>No submissions found.</h4>
-    {% else %}
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Income/Month</th>
-              <th>Rent/Month</th>
-              <th>Loan Repayment</th>
-              <th>Insurance Premium</th>
-              <th>Healthcare Cost</th>
-              <th>Education Cost</th>
-              <th>Desired Savings</th>
-              <th>Dependents</th>
-              <th>Occupation</th>
-              <th>Date Created</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{ entries.id }}</td>
-              <td>{{ entries.name }}</td>
-              <td>{{ entries.age }}</td>
-              <td>{{ entries.income_per_month }}</td>
-              <td>{{ entries.rent_per_month }}</td>
-              <td>{{ entries.loan_repayment_per_month }}</td>
-              <td>{{ entries.insurance_premium }}</td>
-              <td>{{ entries.healthcare_cost_per_month }}</td>
-              <td>{{ entries.education_cost_per_month }}</td>
-              <td>{{ entries.desired_saving_per_month }}</td>
-              <td>{{ entries.no_of_dependents }}</td>
-              <td>{{ entries.occupation }}</td>
-              <td>{{ entries.date_created.strftime('%Y-%m-%d') }}</td>
-              <td>
-                <a href="/delete/{{ entries.id }}" class="button delete-btn">Delete</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="container">
-        <div class="card">
-          <div class="title">User Portfolio</div>
-          <p>Hello there,</p>
-          <label><strong>Name: {{entries.name}}</strong></label>
-          <p>It is best for you to invest Rs. {{entries.cmf2}} in CMF2 mutual fund as per the questionnaire you filled.</p>
-      </div>
-      <div class="card">
-          <p>It is best for you to invest Rs. {{entries.nb2}} in NB2 mutual fund as per the questionnaire you filled.</p>
-      </div>
-      <div class="card">
-          <p>It is best for user to invest Rs. {{entries.nb3}} in NB3 mutual fund as per the questionnaire you filled.</p>
-      </div>
-      <div class="card">
-          <p>It is best for you to invest Rs. {{entries.gibf1}} in GIBF1 mutual fund as per the questionnaire you filled.</p>
-      </div>
-      </div>
+  <h2>User Cashflow</h2>
+  <a href="/logout" class="button Logout-btn">Logout</a>
+  <a
+    href="/delete/{{ entries.id }}"
+    class="button delete-btn"
+    onclick="return confirmDeletion();"
+  >
+    Delete
+  </a>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Income/Month</th>
+          <th>Rent/Month</th>
+          <th>Loan Repayment</th>
+          <th>Insurance Premium</th>
+          <th>Healthcare Cost</th>
+          <th>Education Cost</th>
+          <th>Desired Savings</th>
+          <th>Dependents</th>
+          <th>Occupation</th>
+          <th>Date Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ entries.username }}</td>
+          <td>{{ entries.age }}</td>
+          <td>{{ entries.income_per_month }}</td>
+          <td>{{ entries.rent_per_month }}</td>
+          <td>{{ entries.loan_repayment_per_month }}</td>
+          <td>{{ entries.insurance_premium }}</td>
+          <td>{{ entries.healthcare_cost_per_month }}</td>
+          <td>{{ entries.education_cost_per_month }}</td>
+          <td>{{ entries.desired_saving_per_month }}</td>
+          <td>{{ entries.no_of_dependents }}</td>
+          <td>{{ entries.occupation }}</td>
+          <td>{{ entries.date_created.strftime('%Y-%m-%d') }}</td>
+          <td>
+            <a href="/" class="button update-btn"> Update </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h2>Investment Portfolio</h2>
+    <h2>
+      <div class="card" id="piechart" style="width: max; height: 350px"></div>
+    </h2>
+  </div>
 </div>
-{% endif %}
 {% endblock %}
